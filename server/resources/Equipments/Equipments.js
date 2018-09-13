@@ -20,6 +20,6 @@ var EquipmentSchema = mongoose.Schema({
 })
 
 
-var Equipment =mongoose.model('Equipment',Equipmentschema);
+var Equipment =mongoose.model('Equipment',EquipmentSchema);
 
 module.exports=Equipment;
