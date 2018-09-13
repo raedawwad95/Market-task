@@ -1,5 +1,15 @@
 var Employee =require('./Employees');
 
+
+exports.retrieve=function(req,res){
+  Employee.find({},function(err,data){
+	 if(err){
+	  res.send(err);
+	 }
+	 res.json(data);
+  });
+}
+
 exports.add=function(req,res){
   var Empl = new Employee({
 	name:req.body.name,

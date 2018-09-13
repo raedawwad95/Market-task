@@ -2,6 +2,11 @@ var EmployeeRouter =require('express').Router();
 
 var EmployeeController = require('./EmployeeController.js');
 
+EmployeeRouter.route('/retrieve')
+.get(function(req,res){
+	EmployeeController.retrieve(req,res);
+})
+
 EmployeeRouter.route('/add')
 .post(function(req,res){
 	EmployeeController.add(req,res);
