@@ -7,4 +7,13 @@ EmployeeRouter.route('/add')
 	EmployeeController.add(req,res);
 })
 
+EmployeeRouter.route('/edit')
+.put(function(req,res){
+	EmployeeController.edit(req,res);
+})
+
+EmployeeRouter.route('/:nameEmployee')
+.delete(function(req,res){
+	EmployeeController.deleteOne(req,res);
+})
 module.exports=EmployeeRouter;
