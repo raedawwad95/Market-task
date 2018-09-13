@@ -11,11 +11,11 @@ var EquipmentSchema = mongoose.Schema({
 	},
 	serialNumber :{
 		type :Number,
-		required true,
+		required :true,
 	},
 	image: {
 		type :String,
-		required true,
+		required :true,
 	}
 })
 
