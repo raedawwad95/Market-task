@@ -13,11 +13,11 @@ var ProjectSchema = mongoose.Schema({
 	equipments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Equipment'}],
 	from :{
 		type :Date,
-		required true,
+		required :true,
 	},
 	to :{
 		type :Date,
-		required true,
+		required :true,
 	}
 })
 
