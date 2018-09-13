@@ -42,7 +42,7 @@ exports.edit =function(req,res){
 
 exports.deleteOne=function(req,res){
   var name=req.params.employeeName;
-  Employee.findOneAndRemove({userName:name},function(err,deleted){
+  Employee.findOneAndRemove({name:name},function(err,deleted){
 
 	if(err){
 	  console.log("error");
