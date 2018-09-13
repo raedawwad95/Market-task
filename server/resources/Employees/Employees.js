@@ -11,11 +11,11 @@ var EmployeeSchema = mongoose.Schema({
 	},
 	nationality :{
 		type :String,
-		required true,
+		required: true,
 	},
 	jobTitle: {
 		type :String,
-		required true,
+		required :true,
 	}
 })
 

@@ -1,12 +1,13 @@
 var Employee =require('./Employees');
 
 exports.add=function(req,res){
-  var Empl=new Employee({
+  var Empl = new Employee({
 	name:req.body.name,
 	nationality:req.body.nationality,
-	jobTitale:req.body.jobTitale,
+	jobTitle:req.body.jobTitle,
   });
-empl.save(function(err,data){
+Empl.save(function(err,data){
+	console.log(data)
   if(err){
 	return err
 	}
