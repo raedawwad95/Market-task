@@ -11,6 +11,8 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(express.static(__dirname + '/../dist'));
+
 app.use('/employee',Employees);
 app.use('/equipment',Equipment);
 app.use('/project',Project);
