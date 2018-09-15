@@ -27,4 +27,7 @@ getEmployeesData() {
 
   this.http.post(`${serverApi}/employee/add/`, {name:name,nationality:nationality,jobTitle:jobTitle}).subscribe(res => console.log(res.json()));
   }
+  editEmployee(name:any,jobTitle:any){
+  	this.http.put(`${serverApi}/employee/edit/`, {name:name,jobTitle:jobTitle}).subscribe(res => console.log(res.json()));
+  }
 }
