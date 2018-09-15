@@ -60,6 +60,61 @@
 
 </div>
 <!-- last in add Employee -->
+<!-- edit Employee -->
+<div class="backdrop" [ngStyle]="{'display':displayEdit}"></div>
+
+
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':displayEdit}">
+
+
+  <div class="modal-dialog" role="document">
+
+
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+
+
+        <button type="button" class="close" aria-label="Close" (click)="onCloseHandledEdit()"><span aria-hidden="true">&times;</span></button>
+
+
+        <h4 class="modal-title">Edit Employee</h4>
+
+
+      </div>
+
+
+      <div class="modal-body">
+
+
+         name Employee:<br>
+         <input type="text" name="name" (change)="onChangeName($event.target.value)">
+         <br>
+         Job Title:<br>
+         <input type="text" name="jobTitle" (change)="onChangeJob($event.target.value)">
+
+
+      </div>
+
+
+      <div class="modal-footer">
+
+      	<button type="button" id="bt" class="btn btn-default" (click)="editEmployee()" >Save</button>
+        <button type="button" id="bt" class="btn btn-default" (click)="onCloseHandledEdit()" >Close</button>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+</div>
+<!-- last edit -->
  <mat-grid-list cols="1" rowHeight="7:1" >
   <mat-grid-tile
       *ngFor="let employee of employees">
