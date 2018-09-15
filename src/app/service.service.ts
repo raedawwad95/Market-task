@@ -23,4 +23,8 @@ getEmployeesData() {
   	
     return this.http.delete(`${serverApi}/employee/${empl}`).subscribe(res => console.log(res.json()));
   }
+  addEmployee(name:any,nationality:any,jobTitle:any){
+
+  this.http.post(`${serverApi}/employee/add/`, {name:name,nationality:nationality,jobTitle:jobTitle}).subscribe(res => console.log(res.json()));
+  }
 }
