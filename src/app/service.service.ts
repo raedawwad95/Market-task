@@ -17,4 +17,10 @@ constructor(private http: Http,private httpClient: HttpClient) { }
 getEmployeesData() {
     return this.http.get(`${serverApi}/employee/retrieve/`).pipe(map(res => res.json()));
   }
+
+  
+  deleteEmployee(empl: any) {
+  	
+    return this.http.delete(`${serverApi}/employee/${empl}`).subscribe(res => console.log(res.json()));
+  }
 }
