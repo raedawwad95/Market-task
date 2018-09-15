@@ -18,4 +18,10 @@ export class EmployeeComponent implements OnInit {
   });
   }
 
+   delete( empl:any){
+    this._service.deleteEmployee(empl);
+}
+   edit(){
+    console.log("edit")
+   }
 }
