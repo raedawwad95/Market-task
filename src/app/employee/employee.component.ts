@@ -28,17 +28,15 @@ export class EmployeeComponent implements OnInit {
     this._service.deleteEmployee(empl);
     location.reload();
    }
-  edit(){
+  edit(name){
     this.displayEdit ='block';
+    this.nameEdit = name;
   }
   onCloseHandledEidt(){
     this.displayEdit ='none';
   }
   addEmployee(){
     this.display='block'; 
-  }
-  onChangeNameEdit(name){
-    this.nameEdit = name;
   }
   onChangeJobEdit(jobTitle){
     this.jobTitleEdit=jobTitle;
@@ -60,7 +58,6 @@ export class EmployeeComponent implements OnInit {
     this.jobTitle=jobTitle;
   }
   saveData(){
-    console.log(this.name,this.nationality,this.jobTitle)
    this._service.addEmployee(this.name,this.nationality,this.jobTitle)
     this.display='none';
     location.reload();

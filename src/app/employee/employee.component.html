@@ -87,10 +87,6 @@
 
       <div class="modal-body">
 
-
-         name Employee:<br>
-         <input type="text" name="name" (change)="onChangeNameEdit($event.target.value)">
-         <br>
          Job Title:<br>
          <input type="text" name="jobTitle" (change)="onChangeJobEdit($event.target.value)">
 
@@ -124,7 +120,7 @@
   <h5  class ="style" style="margin-left: 100px"> Nationality :{{employee.nationality}}</h5	>
   <h5 class="style">Job Title :{{employee.jobTitle}}</h5>
   <button id ='EandD' class="material-icons" (click)="delete(employee.name)">delete</button>
-<button id ='EandD' style="margin-right: 50px"class="material-icons" (click)="edit()">edit</button>
+<button id ='EandD' style="margin-right: 50px"class="material-icons" (click)="edit(employee.name)">edit</button>
 
   </mat-grid-tile>
 </mat-grid-list>
