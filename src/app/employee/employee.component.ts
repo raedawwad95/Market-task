@@ -44,7 +44,8 @@ export class EmployeeComponent implements OnInit {
     this.jobTitleEdit=jobTitle;
   }
   editEmployee(){
-    this._service.editEmployee(this.nameEdit,this.jobTitleEdit)
+    this._service.editEmployee(this.nameEdit,this.jobTitleEdit);
+    location.reload();
   }
   onCloseHandled(){
        this.display='none'; 
