@@ -11,6 +11,9 @@ export class EmployeeComponent implements OnInit {
   nationality ="";
   jobTitle = "";
   display='none';
+  displayEdit='none';
+  jobTitleEdit="";
+  nameEdit ="";
   employees: any = [];
   constructor(private _service: ServiceService) { }
 
@@ -26,11 +29,22 @@ export class EmployeeComponent implements OnInit {
     location.reload();
    }
   edit(){
-    console.log("edit")
+    this.displayEdit ='block';
   }
-
+  onCloseHandledEidt(){
+    this.displayEdit ='none';
+  }
   addEmployee(){
     this.display='block'; 
+  }
+  onChangeNameEdit(name){
+    this.nameEdit = name;
+  }
+  onChangeJobEdit(jobTitle){
+    this.jobTitleEdit=jobTitle;
+  }
+  editEmployee(){
+    this._service.editEmployee(this.nameEdit,this.jobTitleEdit)
   }
   onCloseHandled(){
        this.display='none'; 
