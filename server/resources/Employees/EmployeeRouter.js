@@ -17,7 +17,7 @@ EmployeeRouter.route('/edit')
 	EmployeeController.edit(req,res);
 })
 
-EmployeeRouter.route('/:nameEmployee')
+EmployeeRouter.route('/:employeeName')
 .delete(function(req,res){
 	EmployeeController.deleteOne(req,res);
 })
