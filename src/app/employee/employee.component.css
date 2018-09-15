@@ -15,10 +15,20 @@ div.absolute {
 	margin-right: 50px;
 }
 
-button{
+#EandD{
 	background-color:  Lavender;
 	right: 0;
 	position: absolute;
 	margin-right:  10px;
 	margin-top:-70px;
+}
+#add{
+	background-color:  Lavender;
+	margin-right: 50%;
+	left:  0;
+	font-style: italic;
+	color:black;
+}
+#bt{
+	background-color:  Lavender;
 }

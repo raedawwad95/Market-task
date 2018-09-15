@@ -1,5 +1,65 @@
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!--Add Employee -->
+<button type="button" id="add" class="btn btn-info btn-lg" (click)="addEmployee()">Add Employee</button>
+<div class="backdrop" [ngStyle]="{'display':display}"></div>
+
+
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+
+
+  <div class="modal-dialog" role="document">
+
+
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+
+
+        <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+
+
+        <h4 class="modal-title">Add Employee</h4>
+
+
+      </div>
+
+
+      <div class="modal-body">
+
+
+         name:<br>
+         <input type="text" name="name" (change)="onChangeName($event.target.value)">
+         <br>
+         Nationality:<br>
+         <input type="text" name="nationality" (change)="onChangeNatio($event.target.value)">
+         <br>
+         Job Title:<br>
+         <input type="text" name="jobTitle" (change)="onChangeJob($event.target.value)">
+
+
+      </div>
+
+
+      <div class="modal-footer">
+
+      	<button type="button" id="bt" class="btn btn-default" (click)="saveData()" >Save</button>
+        <button type="button" id="bt" class="btn btn-default" (click)="onCloseHandled()" >Close</button>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+</div>
+<!-- last in add Employee -->
  <mat-grid-list cols="1" rowHeight="7:1" >
   <mat-grid-tile
       *ngFor="let employee of employees">
@@ -8,8 +68,8 @@
   </div>
   <h5  class ="style" style="margin-left: 100px"> Nationality :{{employee.nationality}}</h5	>
   <h5 class="style">Job Title :{{employee.jobTitle}}</h5>
-  <button class="material-icons" (click)="delete(employee.name)">delete</button>
-<button style="margin-right: 50px"class="material-icons" (click)="edit()">edit</button>
+  <button id ='EandD' class="material-icons" (click)="delete(employee.name)">delete</button>
+<button id ='EandD' style="margin-right: 50px"class="material-icons" (click)="edit()">edit</button>
 
   </mat-grid-tile>
 </mat-grid-list>
