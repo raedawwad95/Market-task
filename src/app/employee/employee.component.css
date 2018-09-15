@@ -2,3 +2,23 @@ mat-grid-tile {
   background: Lavender;
   
 }
+
+div.absolute {
+    position: absolute;
+    
+    left: 0;
+    margin-left: 10%;
+}
+
+.style{
+	font-family: initial;
+	margin-right: 50px;
+}
+
+button{
+	background-color:  Lavender;
+	right: 0;
+	position: absolute;
+	margin-right:  10px;
+	margin-top:-70px;
+}

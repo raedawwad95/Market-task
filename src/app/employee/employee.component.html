@@ -1,8 +1,15 @@
 
-
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
  <mat-grid-list cols="1" rowHeight="7:1" >
   <mat-grid-tile
       *ngFor="let employee of employees">
-    {{employee.name}}
+  <div class="absolute">
+      <h2 style="left: 50%">{{employee.name}}</h2>
+  </div>
+  <h5  class ="style" style="margin-left: 100px"> Nationality :{{employee.nationality}}</h5	>
+  <h5 class="style">Job Title :{{employee.jobTitle}}</h5>
+  <button class="material-icons" (click)="delete(employee.name)">delete</button>
+<button style="margin-right: 50px"class="material-icons" (click)="edit()">edit</button>
+
   </mat-grid-tile>
 </mat-grid-list>
