@@ -1,4 +1,4 @@
-
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!--Add Project -->
 <button type="button" id="add" class="btn btn-info btn-lg" (click)="addProject()">Add Project</button>
 <div class="backdrop" [ngStyle]="{'display':display}"></div>
@@ -31,6 +31,8 @@
          Name:<br>
          <input type="text" name="name" (change)="onChangeName($event.target.value)">
          <br>
+         Type:<br><input type="text" name="type" (change)="onChangeType($event.target.value)">
+         <br>
          From:<br>
          <input type="date" name="from" (change)="onChangeFrom($event.target.value)">
          <br>
@@ -58,3 +60,72 @@
 
 </div>
 <!-- last in add Project -->
+<!-- edit Project -->
+<div class="backdrop" [ngStyle]="{'display':displayEdit}"></div>
+
+
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':displayEdit}">
+
+
+  <div class="modal-dialog" role="document">
+
+
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+
+
+        <button type="button" class="close" aria-label="Close" (click)="onCloseHandledEdit()"><span aria-hidden="true">&times;</span></button>
+
+
+        <h4 class="modal-title">Edit Project</h4>
+
+
+      </div>
+
+
+      <div class="modal-body">
+
+         type:<br>
+         <input type="text" name="type" (change)="onChangeTypeEdit($event.target.value)"><br>
+         From:<br>
+         <input type="date" name="from" (change)="onChangeFromEdit($event.target.value)"><br>
+         To:<br>
+         <input type="date" name="top" (change)="onChangeToEdit($event.target.value)">
+
+
+      </div>
+
+
+      <div class="modal-footer">
+
+      	<button type="button" id="bt" class="btn btn-default" (click)="editProject()" >Save</button>
+        <button type="button" id="bt" class="btn btn-default" (click)="onCloseHandledEdit()" >Close</button>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+</div>
+<!-- last edit -->
+ <mat-grid-list cols="1" rowHeight="7:1" >
+  <mat-grid-tile
+      *ngFor="let project of projects">
+  <div class="absolute">
+      <h2 style="left: 50%">{{project.name}}</h2>
+  </div>
+  <h5  class ="style" style="margin-left: 100px"> Type :{{project.type}}</h5	>
+  <h5 class="style">From :{{project.from}}</h5>
+  <h5 class="style">To :{{project.to}}</h5>
+  <button id ='EandD' class="material-icons" (click)="delete(project.name)">delete</button>
+<button id ='EandD' style="margin-right: 50px"class="material-icons" (click)="edit(project.name)">edit</button>
+
+  </mat-grid-tile>
+</mat-grid-list>

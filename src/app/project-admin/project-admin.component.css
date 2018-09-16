@@ -1,7 +1,34 @@
+mat-grid-tile {
+  background: Lavender;
+  
+}
+
+div.absolute {
+    position: absolute;
+    
+    left: 0;
+    margin-left: 10%;
+}
+
+.style{
+	font-family: initial;
+	margin-right: 50px;
+}
+
+#EandD{
+	background-color:  Lavender;
+	right: 0;
+	position: absolute;
+	margin-right:  10px;
+	margin-top:-70px;
+}
 #add{
 	background-color:  Lavender;
 	margin-right: 50%;
 	left:  0;
 	font-style: italic;
 	color:black;
+}
+#bt{
+	background-color:  Lavender;
 }
