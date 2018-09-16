@@ -58,3 +58,24 @@
 
 </div>
 <!-- last in add Project -->
+
+<table class='table table-striped'>
+  <thead >
+    <tr style="font-weight: bold">
+      <td >Project Name</td>
+      <td>Employees</td>
+      <td>Equipments</td>
+      <td>From</td>
+      <td>To</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let project of projects">
+      <td>{{ project.name }}</td>
+      <td><p *ngFor="let employee of project.employees">{{employee.name}}</p></td>
+      <td><p *ngFor="let equipment of project.equipments">{{equipment.name}}</p></td>
+      <td>{{project.from}}</td>
+      <td>{{project.to}}</td>
+    </tr>
+  </tbody>
+</table>
