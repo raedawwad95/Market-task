@@ -6,7 +6,8 @@ import {ServiceService} from "../service.service"
   styleUrls: ['./project.component.css']
 })
 export class ProjectComponent implements OnInit {
-  
+  name = ""
+  display='none'
   projects :any =[];
   constructor(private _service: ServiceService) { }
 
@@ -16,4 +17,13 @@ export class ProjectComponent implements OnInit {
   });
   }
 
+  nameProject(name){
+    this.name=name;
+    this.display='block'
+  }
+ 
+  back(){
+    this.display='none'
+
+  }
 }
