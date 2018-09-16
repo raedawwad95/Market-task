@@ -62,4 +62,13 @@ getEmployeesData() {
   getProjectsData() {
     return this.http.get(`${serverApi}/project/retrieve/`).pipe(map(res => res.json()));
   }
+
+
+  addEmpToProject(name:any ,empName:any){
+    console.log(name,empName)
+    this.http.post(`${serverApi}/project/addEmpToProj`,{Projectname:name,empName:empName}).subscribe(res=>console.log(res.json()));
+  }
+  addEquToProject(name:any ,equName:any){
+    this.http.post(`${serverApi}/project/addEquToProj`,{Projectname:name,equName:equName}).subscribe(res=>console.log(res.json()));
+  }
 }
