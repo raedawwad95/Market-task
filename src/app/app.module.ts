@@ -9,13 +9,15 @@ import { EmployeeComponent } from './employee/employee.component';
 import { ProjectComponent } from './project/project.component';
 import { HttpModule } from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
+import { ProjectAdminComponent } from './project-admin/project-admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EquipmentComponent,
     EmployeeComponent,
-    ProjectComponent
+    ProjectComponent,
+    ProjectAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import {HttpClientModule} from '@angular/common/http';
     RouterModule.forRoot([
       { path: 'equipment', component: EquipmentComponent },
       { path: 'employee', component: EmployeeComponent },
-      { path: 'project', component: ProjectComponent }       
+      { path: 'project', component: ProjectComponent },
+      { path: 'projectAdmin', component: ProjectAdminComponent }     
       ])
   ],
   providers: [ServiceService],
