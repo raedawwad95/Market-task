@@ -37,9 +37,22 @@
          <input type="text" name="serialNumber" (change)="onChangeSerial($event.target.value)">
          <br>
          Image:<br>
-         <input type="text" name="image" (change)="onChangeImage($event.target.value)">
-
-
+         
+         <input
+		    required
+		    accept="image/*"
+		    className={classes.input}
+		    id="imageOfId"
+		    type="file"
+		    name= "idCardImageUrl"
+		    (change)="onChangeImage($event)"
+		    />
+		    <p id='succ'class="btn btn-warning" [ngStyle]="{'display':waitToUp}" >
+				Wait To Upload
+		    </p>
+		    <p id='succ'class="btn btn-success" [ngStyle]="{'display':displayImage}" >
+			    Upload  Image
+		    </p>
       </div>
 
 
@@ -90,7 +103,21 @@
          Serial Number:<br>
          <input type="text" name="serialNumber" (change)="onChangeSerialEdit($event.target.value)"><br>
          Image:<br>
-         <input type="text" name="iamge" (change)="onChangeImageEdit($event.target.value)">
+         <input
+		    required
+		    accept="image/*"
+		    className={classes.input}
+		    id="imageOfId"
+		    type="file"
+		    name= "idCardImageUrl"
+		    (change)="onChangeImageEdit($event)"
+        />
+         <p id='succ'class="btn btn-warning" [ngStyle]="{'display':waitToUp}" >
+			Wait To Upload
+		 </p>
+		 <p id='succ'class="btn btn-success" [ngStyle]="{'display':displayImageEdit}" >
+			Upload  Image
+		 </p>
 
 
       </div>
@@ -120,7 +147,7 @@
       <h2 style="left: 50%">{{equipment.name}}</h2>
   </div>
   <h5  class ="style" style="margin-left: 100px"> serialNumber :{{equipment.serialNumber}}</h5	>
-  <h5 class="style">Image :{{equipment.image}}</h5>
+  <img src={{equipment.image}}  width="100" height="100">
   <button id ='EandD' class="material-icons" (click)="delete(equipment.name)">delete</button>
 <button id ='EandD' style="margin-right: 50px"class="material-icons" (click)="edit(equipment.name)">edit</button>
 
