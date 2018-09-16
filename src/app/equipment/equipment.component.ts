@@ -39,9 +39,8 @@ export class EquipmentComponent implements OnInit {
   addEquipment(){
     this.display='block'; 
   }
-  onChangeSerialEdit(serialNumber,image){
+  onChangeSerialEdit(serialNumber){
     this.serialEdit=serialNumber;
-    this.imageEdit = image;
   }
   editEquipment(){
     this._service.editEquipment(this.nameEdit,this.serialEdit,this.imageEdit);
