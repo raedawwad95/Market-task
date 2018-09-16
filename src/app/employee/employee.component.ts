@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from "../service.service";
-import $ from "jquery"
+
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
@@ -32,7 +32,7 @@ export class EmployeeComponent implements OnInit {
     this.displayEdit ='block';
     this.nameEdit = name;
   }
-  onCloseHandledEidt(){
+  onCloseHandledEdit(){
     this.displayEdit ='none';
   }
   addEmployee(){
