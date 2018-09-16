@@ -1,4 +1,128 @@
 
-<p>
-  equipment works!
-</p>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!--Add Equipment -->
+<button type="button" id="add" class="btn btn-info btn-lg" (click)="addEquipment()">Add Equipment</button>
+<div class="backdrop" [ngStyle]="{'display':display}"></div>
+
+
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+
+
+  <div class="modal-dialog" role="document">
+
+
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+
+
+        <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+
+
+        <h4 class="modal-title">Add Equipment</h4>
+
+
+      </div>
+
+
+      <div class="modal-body">
+
+
+         name:<br>
+         <input type="text" name="name" (change)="onChangeName($event.target.value)">
+         <br>
+         Serial Number:<br>
+         <input type="text" name="serialNumber" (change)="onChangeSerial($event.target.value)">
+         <br>
+         Image:<br>
+         <input type="text" name="image" (change)="onChangeImage($event.target.value)">
+
+
+      </div>
+
+
+      <div class="modal-footer">
+
+      	<button type="button" id="bt" class="btn btn-default" (click)="saveData()" >Save</button>
+        <button type="button" id="bt" class="btn btn-default" (click)="onCloseHandled()" >Close</button>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+</div>
+<!-- last in add Equipment -->
+<!-- edit Equipment -->
+<div class="backdrop" [ngStyle]="{'display':displayEdit}"></div>
+
+
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':displayEdit}">
+
+
+  <div class="modal-dialog" role="document">
+
+
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+
+
+        <button type="button" class="close" aria-label="Close" (click)="onCloseHandledEdit()"><span aria-hidden="true">&times;</span></button>
+
+
+        <h4 class="modal-title">Edit Equipment</h4>
+
+
+      </div>
+
+
+      <div class="modal-body">
+
+         Serial Number:<br>
+         <input type="text" name="jobTitle" (change)="onChangeSerialEdit($event.target.value)"><br>
+         Image:<br>
+         <input type="text" name="jobTitle" (change)="onChangeImageEdit($event.target.value)">
+
+
+      </div>
+
+
+      <div class="modal-footer">
+
+      	<button type="button" id="bt" class="btn btn-default" (click)="editEquipment()" >Save</button>
+        <button type="button" id="bt" class="btn btn-default" (click)="onCloseHandledEdit()" >Close</button>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+</div>
+<!-- last edit -->
+ <mat-grid-list cols="1" rowHeight="7:1" >
+  <mat-grid-tile
+      *ngFor="let equipment of equipments">
+  <div class="absolute">
+      <h2 style="left: 50%">{{equipment.name}}</h2>
+  </div>
+  <h5  class ="style" style="margin-left: 100px"> serialNumber :{{equipment.serialNumber}}</h5	>
+  <h5 class="style">Image :{{equipment.image}}</h5>
+  <button id ='EandD' class="material-icons" (click)="delete(equipment.name)">delete</button>
+<button id ='EandD' style="margin-right: 50px"class="material-icons" (click)="edit(equipment.name)">edit</button>
+
+  </mat-grid-tile>
+</mat-grid-list>

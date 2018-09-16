@@ -27,7 +27,24 @@ getEmployeesData() {
 
   this.http.post(`${serverApi}/employee/add/`, {name:name,nationality:nationality,jobTitle:jobTitle}).subscribe(res => console.log(res.json()));
   }
+  
   editEmployee(name:any,jobTitle:any){
   	this.http.put(`${serverApi}/employee/edit/`, {name:name,jobTitle:jobTitle}).subscribe(res => console.log(res.json()));
+  }
+  getEquipmentsData() {
+    return this.http.get(`${serverApi}/equipment/retrieve/`).pipe(map(res => res.json()));
+  }
+
+  
+  deleteEquipment(equi: any) {
+    
+    return this.http.delete(`${serverApi}/equipment/${equi}`).subscribe(res => console.log(res.json()));
+  }
+  addEquipment(name:any,serialNumber:any,image:any){
+
+  this.http.post(`${serverApi}/equipment/add/`, {name:name,serialNumber:serialNumber,image:image}).subscribe(res => console.log(res.json()));
+  }
+  editEquipment(name:any,serialNumber:any,image:any){
+    this.http.put(`${serverApi}/equipment/edit/`, {name:name,serialNumber:serialNumber,image:image}).subscribe(res => console.log(res.json()));
   }
 }
