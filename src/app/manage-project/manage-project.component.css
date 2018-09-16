@@ -1,0 +1,44 @@
+#nameProject{
+	margin-top: 20px;
+	margin-right: 80%;
+	left:  0;
+	font-style: italic;
+	color:black;
+}
+mat-grid-list {
+	margin-top: 100px;
+	margin-bottom: 70px;
+}
+
+.gridTitle {
+  background: Lavender;
+  border: dashed;
+}
+#pPp{
+	position: absolute;
+	margin-left: 3%;
+	margin-top: -3%;
+	left:  0;
+	font-style: italic;
+	color:black;
+}
+.backgr{
+	background: Lavender;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+#add{
+	background-color:  Lavender;
+	margin-right: -75%;
+	margin-top:  -5%;
+	left:  0;
+	font-style: italic;
+	color:black;
+}
+#nameBtn{
+	background-color:  Lavender;
+	left:  0;
+	font-style: italic;
+	color:black;
+}
