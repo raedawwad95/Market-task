@@ -11,6 +11,10 @@ ProjectRouter.route('/add')
 .post(function(req,res){
 	ProjectController.add(req,res);
 })
+ProjectRouter.route('/edit')
+.put(function(req,res){
+	ProjectController.edit(req,res);
+})
 
 ProjectRouter.route('/addEmpToProj')
 .post(function(req,res){
@@ -20,6 +24,10 @@ ProjectRouter.route('/addEmpToProj')
 ProjectRouter.route('/addEquToProj')
 .post(function(req,res){
 	ProjectController.addEquipmentToProject(req,res);
+})
+ProjectRouter.route('/:projectName')
+.delete(function(req,res){
+	ProjectController.deleteOne(req,res);
 })
 
 module.exports=ProjectRouter;

@@ -22,10 +22,26 @@ exports.retrieve=function(req,res){
   })
 
 }
-
+exports.edit =function(req,res){
+	Project.findOne({name:req.body.name}).exec(function (err,project){
+    if(err){
+	  console.error(err);
+	}
+	if(!project){//doctor not found
+	  console.error("No project found");
+	} else {
+	  project.from = req.body.from;
+	  project.to = req.body.to;
+	  project.type = req.body.type;
+	  project.save();
+	  res.json("Updated");
+	}
+})
+}
 exports.add=function(req,res){
   var Proj = new Project({
 	name:req.body.name,
+	type:req.body.type,
 	from:req.body.from,
 	to:req.body.to,
   });
@@ -80,4 +96,16 @@ exports.addEquipmentToProject=function(req,res){
 		  })
 	}
 	})
+}
+
+exports.deleteOne=function(req,res){
+  var name=req.params.projectName;
+  Project.findOneAndRemove({name:name},function(err,deleted){
+
+	if(err){
+	  console.log("error");
+	 }
+
+	res.send(deleted)
+  })
 }
