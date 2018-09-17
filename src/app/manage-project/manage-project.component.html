@@ -3,30 +3,35 @@
 <div class ='backgr' [ngStyle]="{'display':display}">
 <mat-grid-list cols="2" rowHeight="7:1" >
     <h1>Employee</h1>
-  <mat-grid-tile class='gridTitle'>
+  <mat-grid-tile class='gridTitle' (drop)="drop($event)" 
+      (dragover)="allowDrop($event)">
     <p id='pPp'>System Employees</p>
-    <button *ngFor="let employee of employees" id ='nameBtn' (click)="assignedEmpl(employee.name)">{{employee.name}}</button>
+    <button *ngFor="let employee of employees" id ={{employee.name}} draggable="true" 
+      (dragstart)="drag($event)">{{employee.name}}</button>
 
   </mat-grid-tile>
-  <mat-grid-tile class='gridTitle'>
+  <mat-grid-tile class='gridTitle' (drop)="drop($event)" 
+  (dragover)="allowDrop($event)">
     <p id='pPp' >Assigned Employees</p>
-    <button *ngFor="let assin of assinEmp" id ='nameBtn' >{{assin.name}}</button>
+   
 
   </mat-grid-tile>
 </mat-grid-list>
 <mat-grid-list cols="2" rowHeight="7:1" >
     <h1>Equipment</h1>
-  <mat-grid-tile class='gridTitle'>
+  <mat-grid-tile class='gridTitle' (drop)="dropEq($event)" 
+      (dragover)="allowDropEq($event)">
     <p id='pPp'>System Equipment</p>
-    <button *ngFor="let equipment of equipments" id ='nameBtn' (click)="assignedEqui(equipment.name)">{{equipment.name}}</button>
+    <button *ngFor="let equipment of equipments" id ={{equipment.name}} draggable="true" 
+      (dragstart)="dragEq($event)">{{equipment.name}}</button>
 
   </mat-grid-tile>
-  <mat-grid-tile class='gridTitle'>
+  <mat-grid-tile class='gridTitle' (drop)="dropEq($event)" 
+  (dragover)="allowDropEq($event)">
     <p id='pPp'>Assigned Equipment</p>
-    <button *ngFor="let assin of assinEqu" id ='nameBtn' >{{assin.name}}</button>
 
   </mat-grid-tile>
 </mat-grid-list>
     <button type="button" id="add" class="btn btn-info btn-lg" (click)="saveDate()">Save</button>
-  
+
 <div>
