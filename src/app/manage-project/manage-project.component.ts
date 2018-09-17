@@ -15,9 +15,12 @@ export class ManageProjectComponent implements OnInit {
   assinEqu: any = [];
   emplname = "";
   equname = "";
+  succToSave = 0;
   constructor(private _service: ServiceService) { }
 
   ngOnInit() {
+    this.assinEqu=[];
+    this.assinEmp=[];
     this._service.getEmployeesData().subscribe(employee => {
       this.employees = employee;
 
@@ -29,12 +32,12 @@ export class ManageProjectComponent implements OnInit {
   }
 
   saveDate() {
-    if (this.assinEmp.length === 1 || this.assinEqu.length === 1) {
+    if (this.assinEmp.length <=1 && this.assinEqu.length <= 1 && this.succToSave !==0 ) {
       this._service.addEmpToProject(this.nameProject, this.emplname);
       this._service.addEquToProject(this.nameProject, this.equname);
       location.reload();
     } else {
-      alert("you can add just One Employee And One Equipment")
+      alert("you can just Enter One Employee And One Equipment Or One of them")
     }
 
   }
@@ -43,6 +46,7 @@ export class ManageProjectComponent implements OnInit {
     var data = ev.dataTransfer.getData("text");
     this.assinEmp.push({ name: data });
     this.emplname = data;
+    this.succToSave++;
     ev.target.appendChild(document.getElementById(data));
   }
 
@@ -59,6 +63,7 @@ export class ManageProjectComponent implements OnInit {
     var data = ev.dataTransfer.getData("text");
     this.assinEqu.push({ name: data });
     this.equname = data;
+    this.succToSave++;
     ev.target.appendChild(document.getElementById(data));
   }
 

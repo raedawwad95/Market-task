@@ -42,8 +42,12 @@ export class EmployeeComponent implements OnInit {
     this.jobTitleEdit = jobTitle;
   }
   editEmployee() {
+    if(this.jobTitleEdit.length !==0){
     this._service.editEmployee(this.nameEdit, this.jobTitleEdit);
     location.reload();
+  }else{
+    alert("Please Enter Job Title")
+  }
   }
   onCloseHandled() {
     this.display = 'none';
@@ -58,8 +62,13 @@ export class EmployeeComponent implements OnInit {
     this.jobTitle = jobTitle;
   }
   saveData() {
-    this._service.addEmployee(this.name, this.nationality, this.jobTitle)
+    if(this.name.length !==0 && this.nationality.length !==0 && this.jobTitle.length !==0)
+    {
+    this._service.addEmployee(this.name, this.nationality, this.jobTitle);
     this.display = 'none';
     location.reload();
+  }else{
+    alert("Please Enter Name Or Nationality Or JobTitle")
+  }
   }
 }

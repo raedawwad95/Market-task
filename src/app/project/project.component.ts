@@ -18,9 +18,10 @@ export class ProjectComponent implements OnInit {
   }
   nameProject(name) {
     this.name = name;
-    this.display = 'block'
+    this.display = 'block';
   }
   back() {
-    this.display = 'none'
+    this.display = 'none';
+    location.reload();
   }
 }

@@ -75,8 +75,12 @@ export class EquipmentComponent implements OnInit {
     this.serialEdit = serialNumber;
   }
   editEquipment() {
-    this._service.editEquipment(this.nameEdit, this.serialEdit, this.imageEdit);
-    location.reload();
+    if(this.serialEdit !==0 && this.imageEdit.length !==0){
+     this._service.editEquipment(this.nameEdit, this.serialEdit, this.imageEdit);
+    location.reload(); 
+    }else{
+      alert("Please Enter SerialNumber Or Image")
+    }
   }
   onCloseHandled() {
     this.display = 'none';
@@ -96,7 +100,7 @@ export class EquipmentComponent implements OnInit {
     var target = image.target.name;
     imgReader.readAsDataURL(img)
     imgReader.onload = function (upload: any) {
-      imgCode = upload.target.resultك
+      imgCode = upload.target.result;
       imgCode = imgCode.slice(22)
       $.ajax({
         url: `https://api.imgur.com/3/image`,
@@ -117,10 +121,14 @@ export class EquipmentComponent implements OnInit {
     };
   }
   saveData() {
-    console.log(this.image)
-    this._service.addEquipment(this.name, this.serialNumber, this.image)
-    this.display = 'none';
-    location.reload();
+    if(this.name.length !==0 && this.serialNumber !==0 && this.image.length !==0){
+      this._service.addEquipment(this.name, this.serialNumber, this.image)
+      this.display = 'none';
+      location.reload();
+    }else{
+      alert("Please Enter Name Or SerialNumber Or Image")
+    }
+    
 
   }
 }

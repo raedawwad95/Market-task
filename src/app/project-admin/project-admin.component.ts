@@ -12,7 +12,7 @@ export class ProjectAdminComponent implements OnInit {
   to = "";
   display = "none";
   displayEdit = 'none';
-  fromEdit = 0;
+  fromEdit = ""W;
   toEdit = "";
   type = "";
   typeEdit = "";
@@ -56,13 +56,22 @@ export class ProjectAdminComponent implements OnInit {
   }
 
   editProject() {
-    this._service.editProject(this.nameEdit, this.typeEdit, this.fromEdit, this.toEdit);
-    location.reload();
+    if(this.typeEdit.length !==0 && this.fromEdit.length !==0 && this.toEdit.length !==0){
+      this._service.editProject(this.nameEdit, this.typeEdit, this.fromEdit, this.toEdit);
+      location.reload();
+    }else{
+      alert("Please Enter Type Or Date");
+    }
+    
   }
   saveData() {
+    if(this.name.length !== 0 && this.type.length !==0 && this.from.length !==0 && this.to.length !==0){
     this._service.addProject(this.name, this.type, this.from, this.to)
     this.display = 'none';
     location.reload();
+  }else{
+    alert("Please Enter Name Or Type Or Date");
+  }
   }
   delete(project: any) {
     this._service.deleteProject(project);
