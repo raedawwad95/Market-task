@@ -60,8 +60,8 @@
       <h2 style="left: 50%">{{project.name}}</h2>
     </div>
     <h5 class="style" style="margin-left: 100px"> Type :{{project.type}}</h5>
-    <h5 class="style">From :{{project.from}}</h5>
-    <h5 class="style">To :{{project.to}}</h5>
+    <h5 class="style">From : {{project.from | slice:0:10}}</h5>
+    <h5 class="style">To : {{project.to | slice:0:10}}</h5>
     <button id='EandD' class="material-icons" (click)="delete(project.name)">delete</button>
     <button id='EandD' style="margin-right: 50px" class="material-icons" (click)="edit(project.name)">edit</button>
   </mat-grid-tile>

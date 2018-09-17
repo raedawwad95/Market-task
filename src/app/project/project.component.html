@@ -17,8 +17,8 @@
       <td>
         <p *ngFor="let equipment of project.equipments">{{equipment.name}}</p>
       </td>
-      <td>{{project.from}}</td>
-      <td>{{project.to}}</td>
+      <td>{{project.from | slice:0:10}}</td>
+      <td>{{project.to | slice:0:10}}</td>
     </tr>
   </tbody>
 </table>
