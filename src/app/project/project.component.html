@@ -1,9 +1,7 @@
-
-
 <table class='table table-striped'>
-  <thead >
+  <thead>
     <tr style="font-weight: bold">
-      <td >Project Name</td>
+      <td>Project Name</td>
       <td>Employees</td>
       <td>Equipments</td>
       <td>From</td>
@@ -12,9 +10,13 @@
   </thead>
   <tbody>
     <tr *ngFor="let project of projects">
-      <td ><a style="color: blue;"  (click)="nameProject(project.name)">{{ project.name }}</a></td>
-      <td><p *ngFor="let employee of project.employees">{{employee.name}}</p></td>
-      <td><p *ngFor="let equipment of project.equipments">{{equipment.name}}</p></td>
+      <td><a style="color: blue;" (click)="nameProject(project.name)">{{ project.name }}</a></td>
+      <td>
+        <p *ngFor="let employee of project.employees">{{employee.name}}</p>
+      </td>
+      <td>
+        <p *ngFor="let equipment of project.equipments">{{equipment.name}}</p>
+      </td>
       <td>{{project.from}}</td>
       <td>{{project.to}}</td>
     </tr>
@@ -23,7 +25,7 @@
 <hr>
 <hr>
 <div [ngStyle]="{'display':display}" style="background-color: Lavender">
- <app-manage-project [nameProject]="name"></app-manage-project>
+  <app-manage-project [nameProject]="name"></app-manage-project>
   <button type="button" id="add" class="btn btn-info btn-lg" (click)="back()">Back</button>
 </div>
 

@@ -1,37 +1,24 @@
 <h3 id="nameProject" style="margin-top: 50px"> {{ nameProject }}</h3>
-
-<div class ='backgr' [ngStyle]="{'display':display}">
-<mat-grid-list cols="2" rowHeight="7:1" >
+<div class='backgr' [ngStyle]="{'display':display}">
+  <mat-grid-list cols="2" rowHeight="7:1">
     <h1>Employee</h1>
-  <mat-grid-tile class='gridTitle' (drop)="drop($event)" 
-      (dragover)="allowDrop($event)">
-    <p id='pPp'>System Employees</p>
-    <button *ngFor="let employee of employees" id ={{employee.name}} draggable="true" 
-      (dragstart)="drag($event)">{{employee.name}}</button>
-
-  </mat-grid-tile>
-  <mat-grid-tile class='gridTitle' (drop)="drop($event)" 
-  (dragover)="allowDrop($event)">
-    <p id='pPp' >Assigned Employees</p>
-   
-
-  </mat-grid-tile>
-</mat-grid-list>
-<mat-grid-list cols="2" rowHeight="7:1" >
+    <mat-grid-tile class='gridTitle' (drop)="drop($event)" (dragover)="allowDrop($event)">
+      <p id='pPp'>System Employees</p>
+      <button *ngFor="let employee of employees" id={{employee.name}} draggable="true" (dragstart)="drag($event)">{{employee.name}}</button>
+    </mat-grid-tile>
+    <mat-grid-tile class='gridTitle' (drop)="drop($event)" (dragover)="allowDrop($event)">
+      <p id='pPp'>Assigned Employees</p>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list cols="2" rowHeight="7:1">
     <h1>Equipment</h1>
-  <mat-grid-tile class='gridTitle' (drop)="dropEq($event)" 
-      (dragover)="allowDropEq($event)">
-    <p id='pPp'>System Equipment</p>
-    <button *ngFor="let equipment of equipments" id ={{equipment.name}} draggable="true" 
-      (dragstart)="dragEq($event)">{{equipment.name}}</button>
-
-  </mat-grid-tile>
-  <mat-grid-tile class='gridTitle' (drop)="dropEq($event)" 
-  (dragover)="allowDropEq($event)">
-    <p id='pPp'>Assigned Equipment</p>
-
-  </mat-grid-tile>
-</mat-grid-list>
-    <button type="button" id="add" class="btn btn-info btn-lg" (click)="saveDate()">Save</button>
-
-<div>
+    <mat-grid-tile class='gridTitle' (drop)="dropEq($event)" (dragover)="allowDropEq($event)">
+      <p id='pPp'>System Equipment</p>
+      <button *ngFor="let equipment of equipments" id={{equipment.name}} draggable="true" (dragstart)="dragEq($event)">{{equipment.name}}</button>
+    </mat-grid-tile>
+    <mat-grid-tile class='gridTitle' (drop)="dropEq($event)" (dragover)="allowDropEq($event)">
+      <p id='pPp'>Assigned Equipment</p>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <button type="button" id="add" class="btn btn-info btn-lg" (click)="saveDate()">Save</button>
+  <div>

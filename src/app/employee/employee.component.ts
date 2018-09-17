@@ -7,59 +7,59 @@ import { ServiceService } from "../service.service";
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-  name ="";
-  nationality ="";
+  name = "";
+  nationality = "";
   jobTitle = "";
-  display='none';
-  displayEdit='none';
-  jobTitleEdit="";
-  nameEdit ="";
+  display = 'none';
+  displayEdit = 'none';
+  jobTitleEdit = "";
+  nameEdit = "";
   employees: any = [];
   constructor(private _service: ServiceService) { }
 
   ngOnInit() {
-  	this._service.getEmployeesData().subscribe(employee => {
-        this.employees = employee;
-        
-  });
+    this._service.getEmployeesData().subscribe(employee => {
+      this.employees = employee;
+
+    });
   }
 
-  delete( empl:any){
+  delete(empl: any) {
     this._service.deleteEmployee(empl);
     location.reload();
-   }
-  edit(name){
-    this.displayEdit ='block';
+  }
+  edit(name) {
+    this.displayEdit = 'block';
     this.nameEdit = name;
   }
-  onCloseHandledEdit(){
-    this.displayEdit ='none';
+  onCloseHandledEdit() {
+    this.displayEdit = 'none';
   }
-  addEmployee(){
-    this.display='block'; 
+  addEmployee() {
+    this.display = 'block';
   }
-  onChangeJobEdit(jobTitle){
-    this.jobTitleEdit=jobTitle;
+  onChangeJobEdit(jobTitle) {
+    this.jobTitleEdit = jobTitle;
   }
-  editEmployee(){
-    this._service.editEmployee(this.nameEdit,this.jobTitleEdit);
+  editEmployee() {
+    this._service.editEmployee(this.nameEdit, this.jobTitleEdit);
     location.reload();
   }
-  onCloseHandled(){
-       this.display='none'; 
-    }
-  onChangeName(name){
-    this.name=name;
+  onCloseHandled() {
+    this.display = 'none';
   }
-  onChangeNatio(nationality){
-    this.nationality=nationality;
+  onChangeName(name) {
+    this.name = name;
   }
-  onChangeJob(jobTitle){
-    this.jobTitle=jobTitle;
+  onChangeNatio(nationality) {
+    this.nationality = nationality;
   }
-  saveData(){
-   this._service.addEmployee(this.name,this.nationality,this.jobTitle)
-    this.display='none';
+  onChangeJob(jobTitle) {
+    this.jobTitle = jobTitle;
+  }
+  saveData() {
+    this._service.addEmployee(this.name, this.nationality, this.jobTitle)
+    this.display = 'none';
     location.reload();
   }
 }

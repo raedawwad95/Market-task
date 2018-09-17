@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ServiceService} from "../service.service"
+import { ServiceService } from "../service.service"
 
 @Component({
   selector: 'app-project-admin',
@@ -7,71 +7,71 @@ import {ServiceService} from "../service.service"
   styleUrls: ['./project-admin.component.css']
 })
 export class ProjectAdminComponent implements OnInit {
-  name ="";
-  from ="";
-  to ="";
-  display ="none";
-  displayEdit='none';
-  fromEdit=0;
-  toEdit ="";
-  type="";
-  typeEdit="";
-  nameEdit ="";
-  projects :any =[];
+  name = "";
+  from = "";
+  to = "";
+  display = "none";
+  displayEdit = 'none';
+  fromEdit = 0;
+  toEdit = "";
+  type = "";
+  typeEdit = "";
+  nameEdit = "";
+  projects: any = [];
   constructor(private _service: ServiceService) { }
 
   ngOnInit() {
-  this._service.getProjectsData().subscribe(project => {
-        this.projects = project;
-  });
+    this._service.getProjectsData().subscribe(project => {
+      this.projects = project;
+    });
   }
 
-  edit(name){
-    this.displayEdit ='block';
+  edit(name) {
+    this.displayEdit = 'block';
     this.nameEdit = name;
   }
-  addProject(){
-  	this.display="block";
+  addProject() {
+    this.display = "block";
   }
-  onChangeName(name){
-    this.name=name;
+  onChangeName(name) {
+    this.name = name;
   }
-  onChangeFrom(from1){
-    this.from=from1;
+  onChangeFrom(from1) {
+    this.from = from1;
   }
-  onChangeType(type){
-    this.type=type;
+  onChangeType(type) {
+    this.type = type;
   }
-  onChangeTo(to){
-    this.to=to;
+  onChangeTo(to) {
+    this.to = to;
   }
-  onChangeFromEdit(from1){
-    this.fromEdit=from1;
+  onChangeFromEdit(from1) {
+    this.fromEdit = from1;
   }
-  onChangeTypeEdit(type){
-    this.typeEdit=type;
+  onChangeTypeEdit(type) {
+    this.typeEdit = type;
   }
-  onChangeToEdit(to){
-    this.toEdit=to;
+  onChangeToEdit(to) {
+    this.toEdit = to;
   }
 
-  editProject(){
-    this._service.editProject(this.nameEdit,this.typeEdit,this.fromEdit,this.toEdit);
+  editProject() {
+    this._service.editProject(this.nameEdit, this.typeEdit, this.fromEdit, this.toEdit);
     location.reload();
   }
-  saveData(){
-   this._service.addProject(this.name,this.type,this.from,this.to)
-    this.display='none';
+  saveData() {
+    this._service.addProject(this.name, this.type, this.from, this.to)
+    this.display = 'none';
     location.reload();
   }
-  delete( project:any){
+  delete(project: any) {
     this._service.deleteProject(project);
     location.reload();
-   }
-  onCloseHandled(){
-       this.display='none'; 
   }
-  onCloseHandledEdit(){
-    this.displayEdit ='none';
+  onCloseHandled() {
+    this.display = 'none';
+  }
+  onCloseHandledEdit() {
+    this.displayEdit = 'none';
   }
 }
