@@ -11,10 +11,10 @@
       </div>
       <div class="modal-body">
         name:<br>
-        <input type="text" name="name" (change)="onChangeName($event.target.value)">
+        <input type="text" name="name" (change)="onChange($event)">
         <br>
         Serial Number:<br>
-        <input type="text" name="serialNumber" (change)="onChangeSerial($event.target.value)">
+        <input type="text" name="serialNumber" (change)="onChange($event)">
         <br>
         Image:<br>
         <input required accept="image/*" className={classes.input} id="imageOfId" type="file" name="idCardImageUrl"

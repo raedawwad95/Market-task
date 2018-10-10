@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService } from "../service.service";
+import { EquipmentService } from "./equipment.service";
 import $ from 'jquery';
 
 @Component({
@@ -20,7 +20,7 @@ export class EquipmentComponent implements OnInit {
   displayImageEdit = 'none';
   waitToUp = 'block';
   equipments: any = [];
-  constructor(private _service: ServiceService) { }
+  constructor(private _service: EquipmentService) { }
 
   ngOnInit() {
     this._service.getEquipmentsData().subscribe(equipment => {
@@ -85,11 +85,12 @@ export class EquipmentComponent implements OnInit {
   onCloseHandled() {
     this.display = 'none';
   }
-  onChangeName(name) {
-    this.name = name;
-  }
-  onChangeSerial(serialNumber) {
-    this.serialNumber = serialNumber;
+  onChange(e) {
+    if(e.target.name==="name"){
+      this.name=e.target.value;
+    }else if(e.target.name==="serialNumber"){
+      this.serialNumber=e.target.value;
+    }
   }
 
   onChangeImageEdit(image) {

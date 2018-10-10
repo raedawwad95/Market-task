@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ServiceService } from "../service.service"
+import { ManageProjectService } from "./manage-project.service"
 
 @Component({
   selector: 'app-manage-project',
@@ -16,7 +16,7 @@ export class ManageProjectComponent implements OnInit {
   emplname = "";
   equname = "";
   succToSave = 0;
-  constructor(private _service: ServiceService) { }
+  constructor(private _service: ManageProjectService) { }
 
   ngOnInit() {
     this.assinEqu=[];

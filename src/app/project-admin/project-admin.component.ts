@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService } from "../service.service"
+import { ProjectAdminService } from "./project-admin.service"
 
 @Component({
   selector: 'app-project-admin',
@@ -12,13 +12,13 @@ export class ProjectAdminComponent implements OnInit {
   to = "";
   display = "none";
   displayEdit = 'none';
-  fromEdit = ""W;
+  fromEdit = "";
   toEdit = "";
   type = "";
   typeEdit = "";
   nameEdit = "";
   projects: any = [];
-  constructor(private _service: ServiceService) { }
+  constructor(private _service: ProjectAdminService) { }
 
   ngOnInit() {
     this._service.getProjectsData().subscribe(project => {

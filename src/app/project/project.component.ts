@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService } from "../service.service"
+import { ProjectService } from "./project.service"
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
@@ -9,7 +9,7 @@ export class ProjectComponent implements OnInit {
   name = ""
   display = 'none'
   projects: any = [];
-  constructor(private _service: ServiceService) { }
+  constructor(private _service: ProjectService) { }
 
   ngOnInit() {
     this._service.getProjectsData().subscribe(project => {

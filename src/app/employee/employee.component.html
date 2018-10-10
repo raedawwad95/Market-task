@@ -10,20 +10,23 @@
         <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">Add Employee</h4>
       </div>
+      <form (ngSubmit)="saveData()" ngNativeValidate>
+        
       <div class="modal-body">
         name:<br>
-        <input type="text" name="name" (change)="onChangeName($event.target.value)">
+        <input type="text" name="name" (change)="onChangeName($event.target.value)" required>
         <br>
         Nationality:<br>
-        <input type="text" name="nationality" (change)="onChangeNatio($event.target.value)">
+        <input type="text" name="nationality" (change)="onChangeNatio($event.target.value)" required>
         <br>
         Job Title:<br>
-        <input type="text" name="jobTitle" (change)="onChangeJob($event.target.value)">
+        <input type="text" name="jobTitle" (change)="onChangeJob($event.target.value)" required>
       </div>
       <div class="modal-footer">
-        <button type="button" id="bt" class="btn btn-default" (click)="saveData()">Save</button>
+        <button type="submit" id="bt" class="btn btn-default" (click)="saveData()">Save</button>
         <button type="button" id="bt" class="btn btn-default" (click)="onCloseHandled()">Close</button>
       </div>
+    </form>
     </div>
   </div>
 </div>
@@ -37,14 +40,16 @@
         <button type="button" class="close" aria-label="Close" (click)="onCloseHandledEdit()"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">Edit Employee</h4>
       </div>
+      <form (ngSubmit)="editEmployee()" ngNativeValidate>
       <div class="modal-body">
         Job Title:<br>
-        <input type="text" name="jobTitle" (change)="onChangeJobEdit($event.target.value)">
+        <input type="text" name="jobTitle" (change)="onChangeJobEdit($event.target.value)" required>
       </div>
       <div class="modal-footer">
-        <button type="button" id="bt" class="btn btn-default" (click)="editEmployee()">Save</button>
+        <button type="submit" id="bt" class="btn btn-default" (click)="editEmployee()">Save</button>
         <button type="button" id="bt" class="btn btn-default" (click)="onCloseHandledEdit()">Close</button>
       </div>
+      </form>
     </div>
   </div>
 </div>
